@@ -22,6 +22,7 @@ def data_formatter(data: object):
 
 
     """
+    print(data)
 
 
 def data_parser(data: object, pattern):
@@ -42,6 +43,7 @@ def data_parser(data: object, pattern):
 
 
     """
+    print(data, pattern)
 
 
 # Might get deprecated not sure yet
