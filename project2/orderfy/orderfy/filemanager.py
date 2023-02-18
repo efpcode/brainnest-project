@@ -7,7 +7,7 @@ similar actions
 from pathlib import Path
 
 
-def file_reader(path_to_file: str):
+def file_reader(path_to_file: str) -> None:
     """File reader
 
     Parameters
