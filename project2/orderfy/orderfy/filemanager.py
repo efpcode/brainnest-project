@@ -4,6 +4,7 @@
 This is module mainly used for I/O actions like read file data and other
 similar actions
 """
+import json
 from pathlib import Path
 
 
@@ -38,12 +39,12 @@ def file_reader(path_to_file: str) -> None:
                 yield line
 
 
-def file_maker(new_file: str, data: object):
+def file_maker(new_file_name: str, data: object):
     """
 
     Parameters
     ----------
-    new_file : str
+    new_file_name : str
         The relative or absolute path to where file should be created.
     data : object
         The json-like object.
@@ -54,4 +55,6 @@ def file_maker(new_file: str, data: object):
     -------
 
     """
-    print(new_file, data)
+    new_file = Path(f"{new_file_name}.json")
+    with new_file.open(mode="+a", encoding="utf-8") as file_json:
+        json.dump(data, file_json, indent=4, ensure_ascii=False)
