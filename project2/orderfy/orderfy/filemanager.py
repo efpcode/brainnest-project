@@ -6,6 +6,7 @@ similar actions
 """
 import json
 from pathlib import Path
+from orderfy.fileparser import FileParser
 
 
 def file_reader(path_to_file: str) -> None:
@@ -56,5 +57,7 @@ def file_maker(new_file_name: str, data: object):
 
     """
     new_file = Path(f"{new_file_name}.json")
+    file_parser_obj = FileParser()
+    parsed_data = file_parser_obj.data_parser(data)
     with new_file.open(mode="+a", encoding="utf-8") as file_json:
-        json.dump(data, file_json, indent=4, ensure_ascii=False)
+        file_json.write(json.dumps(parsed_data, indent=4, ensure_ascii=False))

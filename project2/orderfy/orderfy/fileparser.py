@@ -18,7 +18,7 @@ class FileParser:
             return max(re.split(r"\s", data), key=len)
 
         if key_word == "Items":
-            new_items = [(k, int(v)) for k, v in [i.rsplit(" ", 1) for i in data]]
+            new_items = ((k, int(v)) for k, v in (i.rsplit(" ", 1) for i in data))
             return dict(tuple(new_items))
 
         return None
